@@ -26,7 +26,7 @@ function pog() {
     let certo = document.getElementById("certo");
     
     let real = document.createElement("p");
-    insira.placeholder = `Insira o ${a + 1}° verso`;
+    insira.placeholder = `Insira o ${a + 1}° verso da música`;
     strings[a] = insira.value;
     real.innerHTML = certa[a];
     checar(a, certa);

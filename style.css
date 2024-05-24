@@ -1,6 +1,7 @@
 body {
     background-color: gray;
     line-height: 25px;
+    font-family: 'Trebuchet MS', sans-serif;
 }
 
 .main-container {
@@ -19,23 +20,23 @@ body {
 }
 
 .errou {
-    border-radius: 15px;
+    border-radius: 5px;
     background-color: #E32B2B;
     
 }
 
 .acertou {
-    border-radius: 15px;
+    border-radius: 5px;
     background-color: #2BE32B ;
 }
 
 .inputs {
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: lightgray;
 }
 
 .certo {
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: lightgray;
 }
 
@@ -44,14 +45,22 @@ body {
     justify-content: center;
 }
 .infos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     background-color: lightgray;
     border-radius: 50px;
+    height: 100px;
     max-width: 750px;
     margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
     
 }
 input{
+    text-align: center;
     background-color: 323232;
     color: white;
     border: none;
