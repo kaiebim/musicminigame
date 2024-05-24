@@ -3,13 +3,14 @@ import { letras } from './musicas.js';
 
 let datetime = Math.floor(new Date().getTime() / (1000 * 60 * 60 * 24)) - 19867;
 let insira = document.getElementById("nome");
+let button = document.getElementById("button");
 let musica = document.getElementById("musica").innerHTML = letras[datetime].musica
 let artista = document.getElementById("artista").innerHTML = letras[datetime].artista
 
 insira.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
+    if ((event.key === "Enter") && (insira.value !== '')) {
         event.preventDefault();
-        document.getElementById("button").click();
+        pog();
     }
 });
 
@@ -47,7 +48,7 @@ function checar(n, r) {
     } else {
         p.classList.add("acertou");
     }
-
+    
     p.innerHTML = insira.value;
     container.appendChild(p);
 }

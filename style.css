@@ -1,5 +1,6 @@
 body {
     background-color: gray;
+    line-height: 25px;
 }
 
 .main-container {
@@ -19,12 +20,13 @@ body {
 
 .errou {
     border-radius: 15px;
-    background-color: red;
+    background-color: #E32B2B;
+    
 }
 
 .acertou {
     border-radius: 15px;
-    background-color: limegreen;
+    background-color: #2BE32B ;
 }
 
 .inputs {
@@ -43,4 +45,22 @@ body {
 }
 .infos{
     text-align: center;
+    background-color: lightgray;
+    border-radius: 50px;
+    max-width: 750px;
+    margin: 0 auto;
+    
+}
+input{
+    background-color: 323232;
+    color: white;
+    border: none;
+    outline: none;
+    height: 25px;
+    width : 250px;
+    border-radius: 15px;
+}
+input::placeholder {
+    text-align: center;
+    color: white;
 }
