@@ -1,10 +1,46 @@
-.textos {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
+body {
+    background-color: gray;
 }
-.column {
-    border: 1px solid #ccc;
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textos {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 300px 300px; /* Ajuste conforme necessário */
+    gap: 100px; /* Espaçamento entre as colunas */
+    border-radius: 10px; /* Arredonda as bordas */
     padding: 10px;
-    background-color: #f9f9f9;
+}
+
+.errou {
+    border-radius: 15px;
+    background-color: red;
+}
+
+.acertou {
+    border-radius: 15px;
+    background-color: limegreen;
+}
+
+.inputs {
+    border-radius: 25px;
+    background-color: lightgray;
+}
+
+.certo {
+    border-radius: 25px;
+    background-color: lightgray;
+}
+
+.botoes{
+    display: flex;
+    justify-content: center;
+}
+.infos{
+    text-align: center;
 }

@@ -4,16 +4,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <label id="label" for="nome">insira o 1° verso</label>
-    <input type="text" id="nome" name="nome">
-    <input type="button" onclick="pog()">
-    <div id="textos" class="textos">
-        <p id="fake"></p>
-        <p id="real"></p>
-        <p id="diferente"></p>
+    
+    <div class="botoes">
+        <input type="text" id="nome" name="nome" maxlength="50" placeholder="Insira o 1° verso">
+        <input id="button" type="button" onclick="pog()" value="insira">
+    </div>
+    <div class="infos">
+        <h1 id="musica"></h1>
+        <p id="artista"></p>
     </div>
     
+    <div class="main-container">
+        <div id="textos" class="textos">
+            <div id="inputs" class="inputs">
+                <p id="fake"></p>
+            </div>
+            <div id="certo" class="certo">
+                <p id="real"></p>
+            </div>
+            
+            
+        </div>
+    </div>
+    
+    
     <h1></h1>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>

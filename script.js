@@ -1,60 +1,69 @@
+// script.js
+import { letras } from './musicas.js';
 
-let p = document.getElementById("fake");
-let real = document.getElementById("real");
-let diferente = document.getElementById("diferente");
+let datetime = Math.floor(new Date().getTime() / (1000 * 60 * 60 * 24)) - 19867;
 let insira = document.getElementById("nome");
-let label = document.getElementById("label");
-let a = 1;
+let musica = document.getElementById("musica").innerHTML = letras[datetime].musica
+let artista = document.getElementById("artista").innerHTML = letras[datetime].artista
+
+insira.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("button").click();
+    }
+});
+
+let a = 0;
 let strings = [];
-let certa = [
-    "Eu quis amar, mas tive medo",
-    "E quis salvar meu coração",
-    "Mas o amor sabe um segredo",
-    "O medo pode matar o seu coração",
-    "Água de beber",
-    "Água de beber, camará",
-    "Água de beber",
-    "Água de beber, camará",
-    "Eu nunca fiz coisa tão certa",
-    "Entrei pra escola do perdão",
-    "A minha casa vive aberta",
-    "Abri todas as portas do coração",
-    "Água de beber",
-    "Água de beber, camará",
-    "Água de beber",
-    "Água de beber, camará",
-    "Eu sempre tive uma certeza",
-    "Que só me deu desilusão",
-    "É que o amor é uma tristeza",
-    "Muita mágoa, demais para um coração",
-    "Água de beber",
-    "Água de beber, camará",
-    "Água de beber",
-    "Água de beber, camará"
-];
+let certa = letras[datetime].letra;  // Usando a primeira música do array letras
+
+
 
 function pog() {
-    label.innerHTML = `Insira o ${a+1}° verso`;
+    console.log(datetime);
+    
+    let certo = document.getElementById("certo");
+    
+    let real = document.createElement("p");
+    insira.placeholder = `Insira o ${a + 1}° verso`;
     strings[a] = insira.value;
-    p.innerHTML += insira.value + "<br>";
-    real.innerHTML += certa[a-1] + "<br>";
+    real.innerHTML = certa[a];
     checar(a, certa);
     a++;
     insira.value = '';
+    
+    certo.appendChild(real);
 }
 
 function checar(n, r) {
-    let diferences = "";
-    let tocheck = strings[n].toLowerCase().replace(/[\s,!?.;:*]/g, '');
-    let togarant = r[n-1].toLowerCase().replace(/[\s,!?.;:*]/g, '');
-    let maxLength = Math.max(tocheck.length, togarant.length);
+    let container = document.getElementById("inputs");
+    let p = document.createElement("p");
+    let str1 = strings[n].toLowerCase().replace(/[\s,!?.;:*]/g, '');
+    let str2 = r[n].toLowerCase().replace(/[\s,!?.;:*]/g, '');
+    let differences = findDifferences(str1, str2);
+    
+    if (differences.length > 0) {
+        p.classList.add("errou");
+    } else {
+        p.classList.add("acertou");
+    }
 
-    for (let i = 0; i < maxLength; i++) {
-        if (tocheck[i] !== togarant[i]) {
-            diferences += tocheck[i] || togarant[i] || '';
+    p.innerHTML = insira.value;
+    container.appendChild(p);
+}
+
+function findDifferences(str1, str2) {
+    let differences = [];
+    let length = Math.max(str1.length, str2.length);
+
+    for (let i = 0; i < length; i++) {
+        if (str1[i] !== str2[i]) {
+            if (str1[i] !== undefined) differences.push(str1[i]);
+            if (str2[i] !== undefined) differences.push(str2[i]);
         }
     }
-    console.log(tocheck, togarant, diferences);
-    diferente.innerHTML += `Diferenças no verso ${n}: ${diferences}` + "<br>";
-    return diferences;
+
+    return differences;
 }
+
+window.pog = pog;
