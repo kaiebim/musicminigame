@@ -1,11 +1,10 @@
-// script.js
 import { letras } from './musicas.js';
 
-let datetime = Math.floor(new Date().getTime() / (1000 * 60 * 60 * 24)) - 19867;
+let datetime = Math.floor(new Date().getTime() / (1000 * 60 * 60 * 24)) - 19868;
 let insira = document.getElementById("nome");
 let button = document.getElementById("button");
-let musica = document.getElementById("musica").innerHTML = letras[datetime].musica
-let artista = document.getElementById("artista").innerHTML = letras[datetime].artista
+let musica = document.getElementById("musica").innerHTML = letras[datetime].musica;
+let artista = document.getElementById("artista").innerHTML = letras[datetime].artista;
 
 insira.addEventListener("keypress", function(event) {
     if ((event.key === "Enter") && (insira.value !== '')) {
@@ -16,7 +15,7 @@ insira.addEventListener("keypress", function(event) {
 
 let a = 0;
 let strings = [];
-let certa = letras[datetime].letra;  // Usando a primeira música do array letras
+let certa = letras[datetime].letra;
 
 
 
@@ -39,10 +38,14 @@ function pog() {
 function checar(n, r) {
     let container = document.getElementById("inputs");
     let p = document.createElement("p");
-    let str1 = strings[n].toLowerCase().replace(/[\s,!?.;:*]/g, '');
-    let str2 = r[n].toLowerCase().replace(/[\s,!?.;:*]/g, '');
+    let str1 = strings[n].toLowerCase().replace(/[\s,!?.;:*)(]/g, '').replace(/[ãáàâ]/g, "a").replace(/[èéê]/g, "e").replace(/[íì]/g, "i").replace(/[õôóò]/g, "o").replace(/[úùû]/g, "u");
+    let str2 = r[n].toLowerCase().replace(/[\s,!?.;:*)(]/g, '').replace(/[ãáàâ]/g, "a").replace(/[èéê]/g, "e").replace(/[íì]/g, "i").replace(/[õôóò]/g, "o").replace(/[úùû]/g, "u");
     let differences = findDifferences(str1, str2);
     
+    console.log(str1);
+    console.log(str2);
+
+
     if (differences.length > 0) {
         p.classList.add("errou");
     } else {
