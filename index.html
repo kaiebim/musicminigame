@@ -2,32 +2,46 @@
 <head>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="style.css">
+    <title>music minigame</title>
+    <link rel="icon" href="music.512.png">
 </head>
 <body>
-    
-    <div class="botoes">
-        <input type="text" id="nome" name="nome" minlength="1" maxlength="50" placeholder="Insira o 1° verso da música">
-    </div>
-    <div class="infos">
-        <h1 id="musica"></h1>
-        <p id="artista"></p>
-    </div>
-    
-    <div class="main-container">
-        <div id="textos" class="textos">
-            <div id="inputs" class="inputs">
-                <p id="fake"></p>
-            </div>
-            <div id="certo" class="certo">
-                <p id="real"></p>
-            </div>
-            
-            
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2>Boas Vindas ao Acerte A Música!</h2>
+            <p>Tente adivinhar o nome da música conforme os versos exibidos. <br>
+            Cada tentativa exibe um novo verso da música. <br>
+            Na última vida, você receberá quem é o autor da música</p>
+            <p>Você tem 5 vidas</p>
+            <p>Boa sorte!</p>
+            <button class="close">Começar</button>
         </div>
     </div>
     
     
-    <h1></h1>
+    <h2 class="title">ACERTE A MÚSICA PELOS VERSOS</h2>
+    <div class="versos">
+            <h4>Versos:</h4>
+            <p id="v1">\s</p>
+            <p id="v2" class="nonvisible">•••••••••••••••••••••••••••••••••••••••••••••</p>
+            <p id="v3" class="nonvisible">•••••••••••••••••••••••••••••••••••••••••••••</p>
+            <p id="v4" class="nonvisible">•••••••••••••••••••••••••••••••••••••••••••••</p>
+            <p>Autor:</p>
+            <p id="v5" class="nonvisible">•••••••••••••••••••••••••••••••••••••••••••••</p>
+    </div>
+    <div class="input">
+        <input type="text" id="nome" name="nome" minlength="1" maxlength="50" placeholder="Insira aqui o nome da música">
+    </div>
+    <p id="hearts">&#10084;&#10084;&#10084;&#10084;&#10084;</p>
+    <div class="tentativas">
+        <p>tentativas:</p>
+        <p id="t1">&nbsp;_____________________________________________&nbsp;</p>
+        <p id="t2">&nbsp;_____________________________________________&nbsp;</p>
+        <p id="t3">&nbsp;_____________________________________________&nbsp;</p>
+        <p id="t4">&nbsp;_____________________________________________&nbsp;</p>
+        <p id="t5">&nbsp;_____________________________________________&nbsp;</p>
+    </div>
+    
     <script type="module" src="script.js"></script>
 </body>
 </html>

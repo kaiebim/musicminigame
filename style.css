@@ -1,75 +1,124 @@
 body {
     background-color: gray;
     line-height: 25px;
+    font-size: large;
     font-family: 'Trebuchet MS', sans-serif;
-}
-
-.main-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.textos {
-    text-align: center;
-    display: grid;
-    grid-template-columns: 300px 300px; /* Ajuste conforme necessário */
-    gap: 100px; /* Espaçamento entre as colunas */
-    border-radius: 10px; /* Arredonda as bordas */
-    padding: 10px;
-}
-
-.errou {
-    border-radius: 5px;
-    background-color: #E32B2B;
-    
-}
-
-.acertou {
-    border-radius: 5px;
-    background-color: #2BE32B ;
-}
-
-.inputs {
-    border-radius: 15px;
-    background-color: lightgray;
-}
-
-.certo {
-    border-radius: 15px;
-    background-color: lightgray;
-}
-
-.botoes{
-    display: flex;
-    justify-content: center;
-}
-.infos{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.title{
     text-align: center;
     background-color: lightgray;
-    border-radius: 50px;
-    height: 100px;
-    max-width: 750px;
-    margin: 0 auto;
-    margin-top: 20px;
+    color: #323232;
+    padding: 10px;
+    border-radius: 15px;
+    display: inline-block;
     margin-bottom: 20px;
-    
+    width: 500px;
+    line-height: 150%;
 }
-input{
+
+.versos {
     text-align: center;
-    background-color: 323232;
-    color: white;
+    background-color: lightgray;
+    color: #323232;
+    padding: 10px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 500px;
+}
+
+.tentativas {
+    text-align: center;
+    background-color: lightgray;
+    color: #323232;
+    padding: 10px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 500px;
+}
+
+#hearts{
+    text-align: center;
+    color: red;
+    padding: 10px;
+    font-size: 150%;
+    background-color: lightgray;
+    border-radius: 15px;
+    width: 500px;
+    line-height: 150%;
+}
+
+#nome{
     border: none;
     outline: none;
-    height: 25px;
-    width : 250px;
-    border-radius: 15px;
-}
-input::placeholder {
+    background-color: #323232;
+    width: 500px;
+    max-width: 100%;
+    padding: 20px;
     text-align: center;
-    color: white;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#nome::placeholder{
+    font-size: large;
+    color: lightgray;
+    
+}
+
+.nonvisible{
+    color: #323232;
+    background-color: #323232;
+    border-radius: 5px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    overflow: auto;
+}
+
+.popup-content {
+    background-color:lightgray;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+}
+
+.close {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: gray; 
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
