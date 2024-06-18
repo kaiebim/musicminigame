@@ -137,6 +137,7 @@ function inputed() {
             }, 500);
         } else {
             window.alert("A música era " + letras[QualUsar].musica);
+            window.location.reload();
             document.getElementById("hearts").innerHTML = "VOCÊ PERDEU";
         }
     }
