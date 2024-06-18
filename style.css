@@ -26,7 +26,7 @@ body {
     text-align: center;
     background-color: lightgray;
     color: #323232;
-    padding: 10px;
+    padding: 20px;
     border-radius: 15px;
     display: inline-block;
     margin-bottom: 20px;
@@ -56,10 +56,24 @@ body {
     line-height: 150%;
 }
 
+#dica{
+    text-align: center;
+    color: #323232;
+    padding: 10px;
+    font-size: 100%;
+    background-color: lightgray;
+    border-radius: 15px;
+    width: 500px;
+    line-height: 150%;
+    display: none;
+}
+
 #nome{
     border: none;
     outline: none;
     background-color: #323232;
+    color: lightgray;
+    font-size: large;
     width: 500px;
     max-width: 100%;
     padding: 20px;
@@ -92,9 +106,8 @@ body {
     z-index: 1000;
     overflow: auto;
 }
-
 .popup-content {
-    background-color:lightgray;
+    background-color: lightgray;
     margin: 10% auto;
     padding: 20px;
     width: 80%;
@@ -104,7 +117,6 @@ body {
     position: relative;
     text-align: center;
 }
-
 .close {
     margin-top: 20px;
     width: 100%;
@@ -115,10 +127,123 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
-
 .close:hover,
 .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+@keyframes corDaBorda {
+    0% {
+        border-color: white;
+    }
+    100% {
+        border-color: black;
+    }
+}
+
+@keyframes floatingText {
+    0% {
+        top: 20;
+    }
+    25%{
+        top: 15px
+    }
+    50% {
+        top: 20px;
+    }
+    75%{
+        top: 25px;
+    }
+    100% {
+        top: 20;
+    }
+}
+
+#btn-dica {
+    text-align: center;
+    display: none;
+    position: fixed;
+    top: calc(3%);
+    right: calc(3%);
+    padding: 15px;
+    background-color: lightgray;
+    color: black;
+    border: 5px solid black; /* Define a borda inicialmente */
+    border-radius: 50%;
+    cursor: pointer;
+    min-width: 75px;
+    min-height: 75px;
+    font-size: 150%;
+    animation: corDaBorda 1s infinite alternate, floatingText 2.5s infinite;
+}
+
+#btn-dica span {
+    display: inline-block;
+    position: relative;
+    
+}
+
+
+#hint-popup .popup-content {
+    background-color: lightgray;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+}
+.hint-button {
+    margin-top: 20px;
+    width: 45%;
+    padding: 10px 20px;
+    background-color: gray;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+.hint-button:hover,
+.hint-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dica{
+    background-color: gray;
+    border-radius: 15px;
+}
+
+.textopontuacao{
+    text-align: center;
+    padding: 10px;
+    font-size: 100%;
+    width: 500px;
+    background-color: lightgray;
+    border-radius: 15px;
+} 
+
+@keyframes shake {
+    0% { background-color: lightgray; }
+    50% { background-color: red; }
+    100% { background-color: lightgray; }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes cabum {
+    0% { background-color: lightgray; }
+    50% { background-color: limegreen; }
+    100% { background-color: lightgray; }
+}
+
+.cabum {
+    animation: cabum 1s;
 }
