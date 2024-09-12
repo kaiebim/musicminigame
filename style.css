@@ -10,7 +10,7 @@ body {
     margin: 0;
 }
 
-.title{
+.title {
     text-align: center;
     background-color: lightgray;
     color: #323232;
@@ -45,7 +45,7 @@ body {
     width: 500px;
 }
 
-#hearts{
+#hearts {
     text-align: center;
     color: red;
     padding: 10px;
@@ -56,7 +56,7 @@ body {
     line-height: 150%;
 }
 
-#dica{
+#dica {
     text-align: center;
     color: #323232;
     padding: 10px;
@@ -68,7 +68,7 @@ body {
     display: none;
 }
 
-#nome{
+#nome {
     border: none;
     outline: none;
     background-color: #323232;
@@ -83,13 +83,13 @@ body {
     margin-top: 10px;
 }
 
-#nome::placeholder{
+#nome::placeholder {
     font-size: large;
     color: lightgray;
-    
+
 }
 
-.nonvisible{
+.nonvisible {
     color: #323232;
     background-color: #323232;
     border-radius: 5px;
@@ -106,6 +106,7 @@ body {
     z-index: 1000;
     overflow: auto;
 }
+
 .popup-content {
     background-color: lightgray;
     margin: 10% auto;
@@ -117,26 +118,30 @@ body {
     position: relative;
     text-align: center;
 }
+
 .close {
     margin-top: 20px;
     width: 100%;
     padding: 10px 20px;
-    background-color: gray; 
+    background-color: gray;
     color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
+
 .close:hover,
 .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
+
 @keyframes corDaBorda {
     0% {
         border-color: white;
     }
+
     100% {
         border-color: black;
     }
@@ -146,15 +151,19 @@ body {
     0% {
         top: 20;
     }
-    25%{
+
+    25% {
         top: 15px
     }
+
     50% {
         top: 20px;
     }
-    75%{
+
+    75% {
         top: 25px;
     }
+
     100% {
         top: 20;
     }
@@ -169,7 +178,8 @@ body {
     padding: 15px;
     background-color: lightgray;
     color: black;
-    border: 5px solid black; /* Define a borda inicialmente */
+    border: 5px solid black;
+    /* Define a borda inicialmente */
     border-radius: 50%;
     cursor: pointer;
     min-width: 75px;
@@ -181,7 +191,7 @@ body {
 #btn-dica span {
     display: inline-block;
     position: relative;
-    
+
 }
 
 
@@ -196,6 +206,7 @@ body {
     position: relative;
     text-align: center;
 }
+
 .hint-button {
     margin-top: 20px;
     width: 45%;
@@ -207,6 +218,7 @@ body {
     cursor: pointer;
     margin: 5px;
 }
+
 .hint-button:hover,
 .hint-button:focus {
     color: black;
@@ -214,24 +226,32 @@ body {
     cursor: pointer;
 }
 
-.dica{
+.dica {
     background-color: gray;
     border-radius: 15px;
 }
 
-.textopontuacao{
+.textopontuacao {
     text-align: center;
     padding: 10px;
     font-size: 100%;
     width: 500px;
     background-color: lightgray;
     border-radius: 15px;
-} 
+}
 
 @keyframes shake {
-    0% { background-color: lightgray; }
-    50% { background-color: red; }
-    100% { background-color: lightgray; }
+    0% {
+        background-color: lightgray;
+    }
+
+    50% {
+        background-color: red;
+    }
+
+    100% {
+        background-color: lightgray;
+    }
 }
 
 .shake {
@@ -239,9 +259,17 @@ body {
 }
 
 @keyframes cabum {
-    0% { background-color: lightgray; }
-    50% { background-color: limegreen; }
-    100% { background-color: lightgray; }
+    0% {
+        background-color: lightgray;
+    }
+
+    50% {
+        background-color: limegreen;
+    }
+
+    100% {
+        background-color: lightgray;
+    }
 }
 
 .cabum {

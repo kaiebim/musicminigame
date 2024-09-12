@@ -1,17 +1,19 @@
 <html>
+
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css">
     <title>music minigame</title>
     <link rel="icon" href="music.512.png">
 </head>
+
 <body>
     <div id="popup" class="popup">
         <div class="popup-content">
             <h2>Boas Vindas ao Acerte A Música!</h2>
             <p>Tente adivinhar o nome da música conforme os versos exibidos. <br>
-            Cada tentativa exibe um novo verso da música. <br>
-            Você tem 10 vidas e 3 dicas disponíveis</p>
+                Cada tentativa exibe um novo verso da música. <br>
+                Você tem 10 vidas e 3 dicas disponíveis</p>
             <p>Boa sorte!</p>
             <button class="close">Começar</button>
         </div>
@@ -25,17 +27,18 @@
             <button id="hint-no" class="hint-button">Não</button>
         </div>
     </div>
-    
+
     <h2 class="title">ACERTE A MÚSICA PELOS VERSOS</h2>
     <div class="versos">
-            <b>Versos:</b>
-            <p id="v1"></p>
-            <p id="v2" class="nonvisible">•••••••••••••••••••••••••••••••••••••••••••••</p>
-            <p id="v3" class="nonvisible">•••••••••••••••••••••••••••••••••••••••••••••</p>
-            <p id="v4" class="nonvisible">•••••••••••••••••••••••••••••••••••••••••••••</p>
+        <b>Versos:</b>
+        <p id="v1"></p>
+        <p id="v2" class="nonvisible">•••••••••••••••••••••••••••••••••••••••••••••</p>
+        <p id="v3" class="nonvisible">•••••••••••••••••••••••••••••••••••••••••••••</p>
+        <p id="v4" class="nonvisible">•••••••••••••••••••••••••••••••••••••••••••••</p>
     </div>
     <div class="input">
-        <input type="text" id="nome" name="nome" minlength="1" maxlength="50" placeholder="Insira aqui o nome da música">
+        <input type="text" id="nome" name="nome" minlength="1" maxlength="50"
+            placeholder="Insira aqui o nome da música">
     </div>
     <p id="hearts">&#10084;&#10084;&#10084;&#10084;&#10084;&#10084;&#10084;&#10084;&#10084;&#10084;</p>
     <div class="dicas">
@@ -56,7 +59,8 @@
     </div>
 
     <p class="textopontuacao" id="textopontuacao">pontuação atual: 0</p>
-    
+
     <script type="module" src="script.js"></script>
 </body>
+
 </html>
