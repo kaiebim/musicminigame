@@ -108,20 +108,7 @@ function inputed() {
     }
     else {
         if (coracoes.length > 1) {
-            coracoes.pop();
-            document.getElementById("hearts").innerHTML = coracoes.join('');
-            document.querySelector('.tentativas').classList.add('shake');
-            document.querySelector('.versos').classList.add('shake');
-            document.querySelector('#hearts').classList.add('shake');
-            pdica.classList.add('shake');
-            document.getElementById("textopontuacao").classList.add('shake');
-            setTimeout(() => {
-                document.querySelector('.tentativas').classList.remove('shake');
-                document.querySelector('.versos').classList.remove('shake');
-                document.querySelector('#hearts').classList.remove('shake');
-                pdica.classList.remove('shake')
-                document.getElementById("textopontuacao").classList.remove('shake');
-            }, 500);
+            errou();
         }
         else {
             window.alert("A música era " + letras[QualUsar].musica);
@@ -134,6 +121,24 @@ function inputed() {
     setTimeout(() => {
         document.querySelector(".title").scrollIntoView({ behavior: "smooth", block: "start" });
     }, 750);
+}
+
+function errou(){
+    coracoes.pop();
+    document.getElementById("hearts").innerHTML = coracoes.join('');
+    let toanime = [document.querySelector('.tentativas'),document.querySelector('.versos'),
+        document.querySelector('#hearts'),pdica,document.getElementById("textopontuacao"),
+        document.querySelector('.title')]
+    toanime.forEach((i)=>{
+        i.classList.add('shake');
+    })
+    
+    setTimeout(() => {
+        toanime.forEach((i)=>{
+            i.classList.remove('shake');
+        })
+    }, 500);
+
 }
 
 document.getElementById('btn-dica').addEventListener('click', function () {
@@ -150,20 +155,14 @@ function exibirHintPopup() {
 }
 
 document.getElementById('hint-yes').addEventListener('click', function () {
-    attempt++;
+    document.getElementById('hint-popup').style.display = 'none';
+    attempt += 1;
     attempted();
     qualt.innerHTML = "Dica";
     qualt.classList.add("dica");
     dicacase++;
     DICA(dicacase);
-    document.getElementById('hint-popup').style.display = 'none';
-    coracoes[attempt - 1] = '';
-    document.getElementById("hearts").innerHTML = coracoes.join('');
-    document.getElementById("hearts").innerHTML = coracoes.join('');
-    document.querySelector('#hearts').classList.add('shake');
-    setTimeout(() => {
-        document.querySelector('#hearts').classList.remove('shake');
-    }, 500);
+    errou();
 });
 
 document.getElementById('hint-no').addEventListener('click', function () {
