@@ -1,10 +1,11 @@
-:root{
-    --text: #070704;
-    --background: #d6d6b0;
-    --primary: #a1b261;
-    --secondary: #99cdb1;
-    --accent: #7ec0be;
+:root {
+    --text: #222222;       /* Cinza grafite, legível e menos agressivo que preto */
+    --background: #c0a87d; /* Bege amarelado mais quente e profundo */
+    --primary: #866543;    /* Marrom dourado mais saturado */
+    --secondary: #a1652f;  /* Marrom médio, suave mas presente */
+    --accent: #d08034;     /* Laranja queimado mais forte, para botões e links */
 }
+
 
 body {
     color: var(--text);
@@ -83,7 +84,7 @@ body {
 #nome {
     outline: 2px solid var(--text);
     border: none;
-    background: linear-gradient(#99cdb1, #7ec0be);
+    background: var(--accent);
     color: var(--text);
     font-size: large;
     width: 500px;
@@ -127,6 +128,7 @@ body {
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
     overflow: auto;
+    border-radius: 15px;
 }
 
 .popup-content {

@@ -180,23 +180,34 @@ let umamorpuro = {
     ]
 }
 
-let comoeuquero = {
-    musica: "Como Eu Quero",
-    artista: "Kid Abelha",
+let voudeixar = {
+    musica: "Vou Deixar",
+    artista: "Skank",
     letra: [
-        ["O que você precisa é de um retoque total",
-            "Vou transformar o seu rascunho em arte final",
-            "Agora não tem jeito, cê tá numa cilada",
-            "Cada um por si, você por mim e mais nada"],
-        ["Longe do meu domínio, cê vai de mal a pior",
-            "Vem que eu te ensino como ser bem melhor",
-            "Longe do meu domínio, cê vai de mal a pior",
-            "Vem que eu te ensino como ser bem melhor"]
+        ["Mas vou ficar aqui",
+        "Até que o dia amanheça",
+        "Vou me esquecer de mim",
+        "E você se puder não me esqueça"]
+    ]
+}
+
+let aguasdemarço = {
+    musica: "Águas de Março",
+    artista: "Elis Regina e Tom Jobim",
+    letra: [
+        ["É uma ave no céu, é uma ave no chão",
+        "É um regato, é uma fonte, é um pedaço de pão",
+        "É o fundo do poço, é o fim do caminho",
+        "No rosto um desgosto, é um pouco sozinho"],
+        ["É um passo, é uma ponte, é um sapo, é uma rã",
+        "É um resto de mato na luz da manhã",
+        "São as águas de março fechando o verão",
+        "É a promessa de vida no teu coração"]
     ]
 }
 
 export const letras = [
     pelaluzdosolhosteus, chovechuva, abanda, aguadebeber, minadocondominio, velhainfancia, joaoemaria,
-    carolinacarolbela, meucaroamigo, naoquerodinheiro, atequedurou, umamorpuro, comoeuquero
+    carolinacarolbela, meucaroamigo, naoquerodinheiro, atequedurou, umamorpuro, voudeixar, aguasdemarço
 ];
 

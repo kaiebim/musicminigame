@@ -5,26 +5,32 @@ let attempt = 0;
 let coracoes = ['&#10084;', '&#10084;', '&#10084;', '&#10084;', '&#10084;', '&#10084;', '&#10084;', '&#10084;', '&#10084;', '&#10084;'];
 let pontuacao = 0;
 
-let v1 = document.getElementById("v1"),
-    v2 = document.getElementById("v2"),
-    v3 = document.getElementById("v3"),
-    v4 = document.getElementById("v4");
+let v1 = elemento("v1"),
+    v2 = elemento("v2"),
+    v3 = elemento("v3"),
+    v4 = elemento("v4");
 
-let t1 = document.getElementById("t1"),
-    t2 = document.getElementById("t2"),
-    t3 = document.getElementById("t3"),
-    t4 = document.getElementById("t4"),
-    t5 = document.getElementById("t5"),
-    t6 = document.getElementById("t6"),
-    t7 = document.getElementById("t7"),
-    t8 = document.getElementById("t8"),
-    t9 = document.getElementById("t9"),
-    t10 = document.getElementById("t10");
+let t1 = elemento("t1"),
+    t2 = elemento("t2"),
+    t3 = elemento("t3"),
+    t4 = elemento("t4"),
+    t5 = elemento("t5"),
+    t6 = elemento("t6"),
+    t7 = elemento("t7"),
+    t8 = elemento("t8"),
+    t9 = elemento("t9"),
+    t10 = elemento("t10");
 
 let qualt = t1;
 let dicacase = 0;
-let pdica = document.getElementById("dica");
+let pdica = elemento("dica");
 
+//FERRAMENTAS
+function elemento(qual){
+    return document.getElementById(qual);
+}
+
+//GAMEPLAY
 function selecionarMusicaAleatoria() {
     QualUsar = Math.floor(Math.random() * letras.length);
     QualParte = Math.floor(Math.random() * letras[QualUsar].letra.length);
@@ -52,7 +58,7 @@ function resetarJogo() {
     v2.classList.add("nonvisible");
     v3.classList.add("nonvisible");
     v4.classList.add("nonvisible");
-    document.getElementById("btn-dica").style.display = "none";
+    elemento("btn-dica").style.display = "none";
 
 
     v1.innerText = letras[QualUsar].letra[QualParte][0];
@@ -60,12 +66,12 @@ function resetarJogo() {
     qualt = t1;
 
     document.querySelector(".title").scrollIntoView({ behavior: "smooth", block: "start" });
-    document.getElementById("textopontuacao").innerHTML = "pontuação atual: " + pontuacao;
+    elemento("textopontuacao").innerHTML = "pontuação atual: " + pontuacao;
 }
 
 v1.innerText = letras[QualUsar].letra[QualParte][0];
 
-let input = document.getElementById("nome");
+let input = elemento("nome");
 input.addEventListener("keypress", function (event) {
     if ((event.key === "Enter") && (input.value !== '')) {
         inputed();
@@ -80,7 +86,7 @@ function attempted() {
         case 1:
             v2.classList.remove("nonvisible");
             v2.innerText = letras[QualUsar].letra[QualParte][1];
-            document.getElementById("btn-dica").style.display = "block"
+            elemento("btn-dica").style.display = "block"
             break;
         case 2:
             v3.classList.remove("nonvisible");
@@ -113,7 +119,7 @@ function inputed() {
         else {
             window.alert("A música era " + letras[QualUsar].musica);
             window.location.reload();
-            document.getElementById("hearts").innerHTML = "VOCÊ PERDEU";
+            elemento("hearts").innerHTML = "VOCÊ PERDEU";
         }
     }
 
@@ -125,9 +131,9 @@ function inputed() {
 
 function errou(){
     coracoes.pop();
-    document.getElementById("hearts").innerHTML = coracoes.join('');
+    elemento("hearts").innerHTML = coracoes.join('');
     let toanime = [document.querySelector('.tentativas'),document.querySelector('.versos'),
-        document.querySelector('#hearts'),pdica,document.getElementById("textopontuacao"),
+        document.querySelector('#hearts'),pdica,elemento("textopontuacao"),
         document.querySelector('.title')]
     toanime.forEach((i)=>{
         i.classList.add('shake');
@@ -141,21 +147,22 @@ function errou(){
 
 }
 
-document.getElementById('btn-dica').addEventListener('click', function () {
+//DICA
+elemento('btn-dica').addEventListener('click', function () {
     if ((attempt < 10) && (attempt > 0)) {
         exibirHintPopup();
     }
 });
 
 function exibirHintPopup() {
-    let hintPopup = document.getElementById("hint-popup");
-    var textoRestante = document.getElementById("dicarestante")
+    let hintPopup = elemento("hint-popup");
+    var textoRestante = elemento("dicarestante")
     textoRestante.innerHTML = "Você quer obter uma dica em troca de uma vida? <br> Você tem " + (3 - dicacase) + " dicas restantes"
     hintPopup.style.display = "block";
 }
 
-document.getElementById('hint-yes').addEventListener('click', function () {
-    document.getElementById('hint-popup').style.display = 'none';
+elemento('hint-yes').addEventListener('click', function () {
+    elemento('hint-popup').style.display = 'none';
     attempt += 1;
     attempted();
     qualt.innerHTML = "Dica";
@@ -165,8 +172,8 @@ document.getElementById('hint-yes').addEventListener('click', function () {
     errou();
 });
 
-document.getElementById('hint-no').addEventListener('click', function () {
-    document.getElementById('hint-popup').style.display = 'none';
+elemento('hint-no').addEventListener('click', function () {
+    elemento('hint-popup').style.display = 'none';
 });
 
 function DICA(qual) {
@@ -198,10 +205,11 @@ function DICA(qual) {
         document.querySelector(".title").scrollIntoView({ behavior: "smooth", block: "start" });
     }, 1000);
     if ((3 - qual) === 0) {
-        document.getElementById("btn-dica").style.display = "none";
+        elemento("btn-dica").style.display = "none";
     }
 }
 
+// INICIO
 window.onload = function () {
     exibirPopup();
     selecionarMusicaAleatoria();
@@ -209,12 +217,12 @@ window.onload = function () {
 };
 
 function exibirPopup() {
-    let popup = document.getElementById('popup');
+    let popup = elemento('popup');
     popup.style.display = 'block';
 }
 
 let btnOk = document.querySelector('#popup button');
 btnOk.addEventListener('click', function () {
-    let popup = document.getElementById('popup');
+    let popup = elemento('popup');
     popup.style.display = 'none';
 });
