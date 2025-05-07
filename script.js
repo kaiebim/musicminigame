@@ -5,23 +5,11 @@ let attempt = 0;
 let coracoes = ['&#10084;', '&#10084;', '&#10084;', '&#10084;', '&#10084;', '&#10084;', '&#10084;', '&#10084;', '&#10084;', '&#10084;'];
 let pontuacao = 0;
 
-let v1 = elemento("v1"),
-    v2 = elemento("v2"),
-    v3 = elemento("v3"),
-    v4 = elemento("v4");
+let v = [elemento("v1"), elemento("v2"), elemento("v3"), elemento("v4")];
 
-let t1 = elemento("t1"),
-    t2 = elemento("t2"),
-    t3 = elemento("t3"),
-    t4 = elemento("t4"),
-    t5 = elemento("t5"),
-    t6 = elemento("t6"),
-    t7 = elemento("t7"),
-    t8 = elemento("t8"),
-    t9 = elemento("t9"),
-    t10 = elemento("t10");
+let t = [elemento("t1"), elemento("t2"), elemento("t3"), elemento("t4"), elemento("t5"), elemento("t6"), elemento("t7"), elemento("t8"), elemento("t9"), elemento("t10")]
 
-let qualt = t1;
+let qualt = t[0];
 let dicacase = 0;
 let pdica = elemento("dica");
 
@@ -30,13 +18,15 @@ function elemento(qual){
     return document.getElementById(qual);
 }
 
+function formatar(oque){
+    return oque.toLocaleLowerCase().replace(/[\s,-\/]/g, '').replace(/[ãáàâä]/g, "a").replace(/[éêèë]/g, "e").replace(/[íìîï]/g, "i").replace(/[ôõóòö]/g, "o").replace(/[ûúùü]/g, "u").replace(/[ç]/g, "c");
+}
+
 //GAMEPLAY
 function selecionarMusicaAleatoria() {
     QualUsar = Math.floor(Math.random() * letras.length);
     QualParte = Math.floor(Math.random() * letras[QualUsar].letra.length);
-    v1.innerText = letras[QualUsar].letra[QualParte][0];
-
-    qualt = t1;
+    v[0].innerText = letras[QualUsar].letra[QualParte][0];
 }
 
 function resetarJogo() {
@@ -45,33 +35,30 @@ function resetarJogo() {
     pdica.innerText = null;
     pdica.style.display = "none";
 
-    let tentativas = [t1, t2, t3, t4, t5, t6, t7, t8, t9, t10];
-    tentativas.forEach((tentativa) => {
-        tentativa.innerHTML = "______________________";
-        tentativa.classList.remove("dica");
+    t.forEach((t) => {
+        t.innerHTML = "______________________";
+        t.classList.remove("dica");
     });
-    let v = [v2, v3, v4]
     v.forEach((v) => {
-        v.innerHTML = "•••••••••••••••••••••••••••••••••••••••••••••"
+        v.innerHTML = "•••••••••••••••••••••••••••••••••••••••••••••";
+        if (v!==elemento("v1")){
+            v.classList.add("nonvisible");
+        }
     })
-
-    v2.classList.add("nonvisible");
-    v3.classList.add("nonvisible");
-    v4.classList.add("nonvisible");
     elemento("btn-dica").style.display = "none";
 
 
-    v1.innerText = letras[QualUsar].letra[QualParte][0];
+    v[0].innerText = letras[QualUsar].letra[QualParte][0];
 
-    qualt = t1;
+    qualt = t[0];
 
     document.querySelector(".title").scrollIntoView({ behavior: "smooth", block: "start" });
     elemento("textopontuacao").innerHTML = "pontuação atual: " + pontuacao;
 }
 
-v1.innerText = letras[QualUsar].letra[QualParte][0];
-
+v[0].innerText = letras[QualUsar].letra[QualParte][0];
 let input = elemento("nome");
+
 input.addEventListener("keypress", function (event) {
     if ((event.key === "Enter") && (input.value !== '')) {
         inputed();
@@ -80,28 +67,17 @@ input.addEventListener("keypress", function (event) {
 });
 
 function attempted() {
-    let t = [t1, t2, t3, t4, t5, t6, t7, t8, t9, t10]
-    qualt = t[attempt - 1];
-    switch (attempt) {
-        case 1:
-            v2.classList.remove("nonvisible");
-            v2.innerText = letras[QualUsar].letra[QualParte][1];
-            elemento("btn-dica").style.display = "block"
-            break;
-        case 2:
-            v3.classList.remove("nonvisible");
-            v3.innerText = letras[QualUsar].letra[QualParte][2];
-            break;
-        case 3:
-            v4.classList.remove("nonvisible");
-            v4.innerText = letras[QualUsar].letra[QualParte][3];
-            break;
+    qualt = t[attempt-1];
+    if (attempt <= 3){ 
+        v[attempt].classList.remove("nonvisible")
+        v[attempt].innerText = letras[QualUsar].letra[QualParte][attempt]
     }
+    if (attempt === 1) elemento("btn-dica").style.display = "block";
 }
 
 function inputed() {
-    let responseInput = input.value.toLocaleLowerCase().replace(/[\s,-\/]/g, '').replace(/[ãáàâä]/g, "a").replace(/[éêèë]/g, "e").replace(/[íìîï]/g, "i").replace(/[ôõóòö]/g, "o").replace(/[ûúùü]/g, "u");
-    let responseMusica = letras[QualUsar].musica.toLocaleLowerCase().replace(/[\s,-\/]/g, '').replace(/[ãáàâä]/g, "a").replace(/[éêèë]/g, "e").replace(/[íìîï]/g, "i").replace(/[ôõóòö]/g, "o").replace(/[ûúùü]/g, "u");
+    let responseInput = formatar(input.value);
+    let responseMusica = formatar(letras[QualUsar].musica);
     console.log(responseInput, responseMusica);
     attempt += 1;
     attempted();
@@ -148,33 +124,6 @@ function errou(){
 }
 
 //DICA
-elemento('btn-dica').addEventListener('click', function () {
-    if ((attempt < 10) && (attempt > 0)) {
-        exibirHintPopup();
-    }
-});
-
-function exibirHintPopup() {
-    let hintPopup = elemento("hint-popup");
-    var textoRestante = elemento("dicarestante")
-    textoRestante.innerHTML = "Você quer obter uma dica em troca de uma vida? <br> Você tem " + (3 - dicacase) + " dicas restantes"
-    hintPopup.style.display = "block";
-}
-
-elemento('hint-yes').addEventListener('click', function () {
-    elemento('hint-popup').style.display = 'none';
-    attempt += 1;
-    attempted();
-    qualt.innerHTML = "Dica";
-    qualt.classList.add("dica");
-    dicacase++;
-    DICA(dicacase);
-    errou();
-});
-
-elemento('hint-no').addEventListener('click', function () {
-    elemento('hint-popup').style.display = 'none';
-});
 
 function DICA(qual) {
     pdica.style.display = "none";
@@ -204,10 +153,46 @@ function DICA(qual) {
         pdica.classList.remove('cabum');
         document.querySelector(".title").scrollIntoView({ behavior: "smooth", block: "start" });
     }, 1000);
-    if ((3 - qual) === 0) {
+    if (qual === 3) {
         elemento("btn-dica").style.display = "none";
     }
 }
+
+elemento('btn-dica').addEventListener('click', function () {
+    if ((attempt < 10) && (attempt > 0)) {
+        exibirHintPopup();
+    }
+});
+
+function exibirHintPopup() {
+    let hintPopup = elemento("hint-popup");
+    var textoRestante = elemento("dicarestante")
+    textoRestante.innerHTML = "Você quer obter uma dica em troca de uma vida? <br> Você tem " + (3 - dicacase) + " dicas restantes"
+    hintPopup.style.display = "block";
+}
+
+elemento('hint-yes').addEventListener('click', function () {
+    elemento('hint-popup').style.display = 'none';
+    attempt += 1;
+    attempted();
+    qualt.innerHTML = "Dica";
+    qualt.classList.add("dica");
+    dicacase++;
+    DICA(dicacase);
+    if (coracoes.length > 1) {
+        errou();
+    }
+    else {
+        window.alert("A música era " + letras[QualUsar].musica);
+        window.location.reload();
+        elemento("hearts").innerHTML = "VOCÊ PERDEU";
+    }
+});
+
+elemento('hint-no').addEventListener('click', function () {
+    elemento('hint-popup').style.display = 'none';
+});
+
 
 // INICIO
 window.onload = function () {
