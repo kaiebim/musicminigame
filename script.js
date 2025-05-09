@@ -12,8 +12,12 @@ let t = [elemento("t1"), elemento("t2"), elemento("t3"), elemento("t4"), element
 let qualt = t[0];
 let dicacase = 0;
 let pdica = elemento("dica");
+let input = elemento("nome");
+
+let lastinput = ''
 
 //FERRAMENTAS
+
 function elemento(qual){
     return document.getElementById(qual);
 }
@@ -22,14 +26,20 @@ function formatar(oque){
     return oque.toLocaleLowerCase().replace(/[\s,-\/]/g, '').replace(/[ãáàâä]/g, "a").replace(/[éêèë]/g, "e").replace(/[íìîï]/g, "i").replace(/[ôõóòö]/g, "o").replace(/[ûúùü]/g, "u").replace(/[ç]/g, "c");
 }
 
+// INICIO
+
+window.onload = function () {
+    exibirPopup();
+    iniciarJogo();
+};
+
 //GAMEPLAY
-function selecionarMusicaAleatoria() {
+
+function iniciarJogo() {
     QualUsar = Math.floor(Math.random() * letras.length);
     QualParte = Math.floor(Math.random() * letras[QualUsar].letra.length);
     v[0].innerText = letras[QualUsar].letra[QualParte][0];
-}
-
-function resetarJogo() {
+    qualt = t[0];
     attempt = 0;
     dicacase = 0;
     pdica.innerText = null;
@@ -40,29 +50,28 @@ function resetarJogo() {
         t.classList.remove("dica");
     });
     v.forEach((v) => {
-        v.innerHTML = "•••••••••••••••••••••••••••••••••••••••••••••";
         if (v!==elemento("v1")){
+            v.innerHTML = "•••••••••••••••••••••••••••••••••••••••••••••";
             v.classList.add("nonvisible");
         }
     })
     elemento("btn-dica").style.display = "none";
-
-
-    v[0].innerText = letras[QualUsar].letra[QualParte][0];
-
-    qualt = t[0];
-
     document.querySelector(".title").scrollIntoView({ behavior: "smooth", block: "start" });
     elemento("textopontuacao").innerHTML = "pontuação atual: " + pontuacao;
 }
 
-v[0].innerText = letras[QualUsar].letra[QualParte][0];
-let input = elemento("nome");
-
-input.addEventListener("keypress", function (event) {
+input.addEventListener("keydown", function (event) {
     if ((event.key === "Enter") && (input.value !== '')) {
         inputed();
+        lastinput = input.value;
+        console.log(lastinput);
         input.value = '';
+    }
+    if (event.key === "ArrowUp"){
+        input.value = lastinput;
+    }
+    if (event.key === "ArrowDown"){
+        input.value = ''
     }
 });
 
@@ -85,8 +94,7 @@ function inputed() {
     if (responseInput === responseMusica) {
         pontuacao++;
         window.alert("Parabéns! \npontuação atual: " + pontuacao + "\nvidas: " + (coracoes.length));
-        selecionarMusicaAleatoria();
-        resetarJogo();
+        iniciarJogo();
     }
     else {
         if (coracoes.length > 1) {
@@ -193,13 +201,7 @@ elemento('hint-no').addEventListener('click', function () {
     elemento('hint-popup').style.display = 'none';
 });
 
-
-// INICIO
-window.onload = function () {
-    exibirPopup();
-    selecionarMusicaAleatoria();
-    resetarJogo();
-};
+// POPUP
 
 function exibirPopup() {
     let popup = elemento('popup');

@@ -9,7 +9,7 @@ let modelo = {
 
 let pelaluzdosolhosteus = {
     musica: "Pela Luz Dos Olhos Teus",
-    artista: "Tom Jobim",
+    artista: "Tom Jobim e Miúcha",
     letra: [
         ["Meu amor, juro por Deus",
             "Que a luz dos olhos meus já não pode esperar",
@@ -206,8 +206,74 @@ let aguasdemarço = {
     ]
 }
 
+let descobridordossetemares = {
+    musica: "Descobridor dos Sete Mares",
+    artista: "Tim Maia",
+    letra: [
+        ["Uma luz azul me guia",
+        "Com a firmeza e os lampejos do farol",
+        "E os recifes lá de cima",
+        "Me avisam dos perigos de chegar"],
+        ["Uma lua me ilumina",
+        "Com a clareza e o brilho do cristal",
+        "Transando as cores desta vida",
+        "Vou colorindo a alegria de chegar"]
+    ]
+}
+
+let calice = {
+    musica: "Cálice",
+    artista: "Chico Buarque e Milton Nascimento",
+    letra: [
+        ["De que me vale ser filho da santa",
+        "Melhor seria ser filho da outra",
+        "Outra realidade menos morta",
+        "Tanta mentira, tanta força bruta"],
+        ["Esse silêncio todo me atordoa",
+        "Atordoado eu permaneço atento",
+        "Na arquibancada pra qualquer momento",
+        "Ver emergir o monstro da lagoa"]
+    ]
+}
+
+let obalavemela = {
+    musica: "Oba, Lá Vem Ela",
+    artista: "Jorge Ben Jor",
+    letra: [
+        ["Não me importo que ela não me olhe",
+        "Não diga nada e não saiba que eu existo",
+        "Quem eu sou, pois eu sei muito bem quem ela é",
+        "E fico contente só em ver ela passar, oba"],
+        ["A noite é linda e ela mais ainda",
+        "Todinha de rosa",
+        "Mais linda, mais meiga",
+        "Que uma rosa"],
+        ["Não me importo que falem, que pensem",
+        "Pois sem saber ela é minha alegria",
+        "Ela tem um perfume de uma flor que eu não sei o nome",
+        "Mas ela deve ter um nome bonito igual a ela"]
+        
+    ]
+}
+
+let oshowtemquecontinuar = {
+    musica: "O Show Tem Que Continuar",
+    artista: "Fundo De Quintal",
+    letra: [
+        ["Se os duetos não se encontram mais",
+        "E os solos perderam a emoção",
+        "Se acabou o gás",
+        "Pra cantar o mais simples refrão"],
+        ["Se a gente nota",
+        "Que uma só nota",
+        "Já nos esgota",
+        "O show perde a razão"]
+    ]
+}
+
 export const letras = [
     pelaluzdosolhosteus, chovechuva, abanda, aguadebeber, minadocondominio, velhainfancia, joaoemaria,
-    carolinacarolbela, meucaroamigo, naoquerodinheiro, atequedurou, umamorpuro, voudeixar, aguasdemarço
+    carolinacarolbela, meucaroamigo, naoquerodinheiro, atequedurou, umamorpuro, voudeixar, aguasdemarço,
+    descobridordossetemares, calice, obalavemela, oshowtemquecontinuar
 ];
 
